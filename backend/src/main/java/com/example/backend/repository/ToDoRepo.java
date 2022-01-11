@@ -31,4 +31,10 @@ public class ToDoRepo {
     public Optional<ToDo> findById(String id) {
         return Optional.of(toDoRepo.get(id));
     }
+
+
+    public ToDo changeToDo(String id, ToDo changedToDo) {
+        toDoRepo.replace(id,changedToDo);
+        return changedToDo;
+    }
 }

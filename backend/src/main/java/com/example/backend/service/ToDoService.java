@@ -29,4 +29,11 @@ public class ToDoService {
     public Optional<ToDo> findToDoById(String id) {
         return toDoRepo.findById(id);
     }
+
+    public Optional<ToDo> updateToDo(ToDo changedToDo) {
+        if (findToDoById(changedToDo.getId()).isEmpty()){
+            return Optional.empty();
+        }
+        return Optional.of(toDoRepo.changeToDo(changedToDo.getId(), changedToDo));
+    }
 }
