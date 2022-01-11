@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Repository
 public class ToDoRepo {
@@ -25,5 +26,9 @@ public class ToDoRepo {
     public ToDo saveToDo(ToDo toDoToAdd) {
         toDoRepo.put(toDoToAdd.getId(),toDoToAdd);
         return toDoToAdd;
+    }
+
+    public Optional<ToDo> findById(String id) {
+        return Optional.of(toDoRepo.get(id));
     }
 }

@@ -5,6 +5,7 @@ import com.example.backend.repository.ToDoRepo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ToDoService {
@@ -23,5 +24,9 @@ public class ToDoService {
     public ToDo addTodo(ToDo toDoToAdd) {
         toDoToAdd.setId(idService.generateId());
         return toDoRepo.saveToDo(toDoToAdd);
+    }
+
+    public Optional<ToDo> findToDoById(String id) {
+        return toDoRepo.findById(id);
     }
 }
