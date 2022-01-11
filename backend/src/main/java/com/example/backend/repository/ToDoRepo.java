@@ -37,4 +37,8 @@ public class ToDoRepo {
         toDoRepo.replace(id,changedToDo);
         return changedToDo;
     }
+
+    public Optional<ToDo> deleteToDoById(String id) {
+        return Optional.of(toDoRepo.remove(id));
+    }
 }

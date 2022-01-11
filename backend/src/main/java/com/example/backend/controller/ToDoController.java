@@ -2,7 +2,6 @@ package com.example.backend.controller;
 
 import com.example.backend.model.ToDo;
 import com.example.backend.service.ToDoService;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -48,6 +47,12 @@ public class ToDoController {
     @PutMapping(value = "/{id}")
     public ResponseEntity<ToDo> putNewStatus(@RequestBody ToDo changedToDo){
         Optional<ToDo> optToDo= toDoService.updateToDo(changedToDo);
+        return ResponseEntity.of(optToDo);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<ToDo> deleteToDo(@PathVariable String id){
+        Optional<ToDo> optToDo =  toDoService.removeToDoById(id);
         return ResponseEntity.of(optToDo);
     }
 

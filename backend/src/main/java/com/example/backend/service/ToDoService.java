@@ -36,4 +36,8 @@ public class ToDoService {
         }
         return Optional.of(toDoRepo.changeToDo(changedToDo.getId(), changedToDo));
     }
+
+    public Optional<ToDo> removeToDoById(String id) {
+        return  toDoRepo.deleteToDoById(id);
+    }
 }
