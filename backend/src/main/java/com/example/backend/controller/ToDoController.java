@@ -45,6 +45,12 @@ public class ToDoController {
         return ResponseEntity.of(optToDo);
     }
 
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<ToDo> putNewStatus(@RequestBody ToDo changedToDo){
+        Optional<ToDo> optToDo= toDoService.updateToDo(changedToDo);
+        return ResponseEntity.of(optToDo);
+    }
+
 
 
 }
